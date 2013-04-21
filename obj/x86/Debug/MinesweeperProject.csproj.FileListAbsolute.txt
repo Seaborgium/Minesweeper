@@ -1,0 +1,5 @@
+C:\Users\marti_000\Documents\Visual Studio 2012\Projects\Minesweeper-6\bin\Debug\MinesweeperProject.exe
+C:\Users\marti_000\Documents\Visual Studio 2012\Projects\Minesweeper-6\bin\Debug\MinesweeperProject.pdb
+C:\Users\marti_000\Documents\Visual Studio 2012\Projects\Minesweeper-6\obj\x86\Debug\MinesweeperProject.csprojResolveAssemblyReference.cache
+C:\Users\marti_000\Documents\Visual Studio 2012\Projects\Minesweeper-6\obj\x86\Debug\MinesweeperProject.exe
+C:\Users\marti_000\Documents\Visual Studio 2012\Projects\Minesweeper-6\obj\x86\Debug\MinesweeperProject.pdb
