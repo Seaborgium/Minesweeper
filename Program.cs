@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MinesweeperProject
 {
-    // "Tova e test commit" - Hristosdasda
+    // "Tova e test commit" - Hristo
 	// kofti kod stana, ama sym dovolen, ima kakvo da se popravia
 
     class Program
