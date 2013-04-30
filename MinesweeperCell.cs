@@ -6,7 +6,7 @@ using System.Text;
 namespace MinesweeperProject
 {
     //Testing git
-    class MinesweeperCell
+    public class MinesweeperCell
     {
         private char val = '?';
         private bool revealed = false;

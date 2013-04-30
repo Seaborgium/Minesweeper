@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace MinesweeperProject
+﻿namespace MinesweeperProject
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+
     public class MinesweeperGrid
     {
         private static readonly Random randomGenerator = new Random();
-        private MinesweeperCell[,] grid;
-        private int rowsCount;
-        private int columnsCount;
-        private int minesCount;
+
+        private readonly MinesweeperCell[,] grid;
+        private readonly int rowsCount;
+        private readonly int columnsCount;
+        private readonly int minesCount;
 
         public MinesweeperGrid(int rowsCount, int columnsCount, int minesCount)
         {
@@ -19,15 +20,8 @@ namespace MinesweeperProject
             this.columnsCount = columnsCount;
             this.minesCount = minesCount;
             this.grid = new MinesweeperCell[rowsCount, columnsCount];
-            for (int i = 0; i < rowsCount; i++)
-            {
-                for (int j = 0; j < columnsCount; j++)
-                {
-                    grid[i, j] = new MinesweeperCell();
-                }
-            }
 
-
+            Clear();
         }
 
         public bool IsValidCell(int row, int column)
@@ -42,45 +36,61 @@ namespace MinesweeperProject
             }
         }
 
-        private void SetCellValue(int row, int column, char value)
+        public void SetCellValue(int row, int column, char value)
         {
             if (!IsValidCell(row, column))
             {
                 throw new InvalidCellException();
             }
 
-            grid[row, column].Value = value;
+            this.grid[row, column].Value = value;
         }
 
-        private char GetCellValue(int row, int column)
+        public char GetCellValue(int row, int column)
         {
             if (!IsValidCell(row, column))
             {
                 throw new InvalidCellException();
             }
 
-            char result = grid[row, column].Value;
+            char result = this.grid[row, column].Value;
             return result;
+        }
+
+        public MinesweeperCell GetCell(int row, int column)
+        {
+            if (IsValidCell(row, column))
+            {
+                throw new InvalidCellException();
+            }
+
+            return this.grid[row, column];
         }
 
         public char RevealCell(int row, int column)
         {
-            if ((!IsValidCell(row, column)) || grid[row, column].Revealed)
+            if ((!IsValidCell(row, column)) || this.grid[row, column].Revealed)
             {
                 throw new InvalidCellException();
             }
 
-            grid[row, column].Reveal();
-            if (grid[row, column].Value != '*')
+            this.grid[row, column].Reveal();
+            if (this.grid[row, column].Value != '*')
             {
                 int neighbourMinesCount = NeighbourMinesCount(row, column);
                 var cellValue = neighbourMinesCount.ToString()[0];
                 SetCellValue(row, column, cellValue);
             }
-            return grid[row, column].Value;
+            return this.grid[row, column].Value;
         }
 
-        public int NeighbourMinesCount(int row, int column)
+        public void Reset()
+        {
+            Clear();
+            Initialize();
+        }
+
+        private int NeighbourMinesCount(int row, int column)
         {
             if (!IsValidCell(row, column))
             {
@@ -91,14 +101,14 @@ namespace MinesweeperProject
             int minRow = (row - 1) < 0 ? row : row - 1;
             int maxRow = (row + 1) >= rowsCount ? row : row + 1;
             int minColumn = (column - 1) < 0 ? column : column - 1;
-            int maxColumn = (column + 1) >= columnsCount ? column : column + 1; ;
+            int maxColumn = (column + 1) >= columnsCount ? column : column + 1;
 
             int count = 0;
             for (int i = minRow; i <= maxRow; i++)
             {
                 for (int j = minColumn; j <= maxColumn; j++)
                 {
-                    if (grid[i, j].Value == '*')
+                    if (this.grid[i, j].Value == '*')
                     {
                         count++;
                     }
@@ -136,54 +146,25 @@ namespace MinesweeperProject
             }
         }
 
-        private void put()
-        {
-            for (int i = 0; i < rowsCount; i++)
-            {
-                for (int j = 0; j < columnsCount; j++)
-                {
-                    char currentCellValue = GetCellValue(i, j);
-                    if (currentCellValue != '*')
-                    {
-                        int neighbourMinesCount = NeighbourMinesCount(i, j);
-                        SetCellValue(i, j, neighbourMinesCount.ToString()[0]);
-                    }
-                }
-
-
-
-            }
-        }
-
-        public void Reset()
-        {
-            Clear();
-            Initialize();
-        }
-
-        public void Clear()
+        private void Clear()
         {
             for (int i = 0; i < this.rowsCount; i++)
             {
                 for (int j = 0; j < this.columnsCount; j++)
                 {
-                    grid[i, j] = new MinesweeperCell();   
+                    this.grid[i, j] = new MinesweeperCell();   
                 }
             }
-
         }
 
         public int RevealedCount()
         {
             int count = 0;
-            for (int i = 0; i < this.rowsCount; ++i)
+            foreach (var cell in this.grid)
             {
-                for (int j = 0; j < this.columnsCount; ++j)
+                if (cell.Revealed)
                 {
-                    {
-                        if (this.grid[i, j].Revealed)
-                            count++;
-                    }
+                    count++;
                 }
             }
             return count;
@@ -191,72 +172,62 @@ namespace MinesweeperProject
 
         public void RevealMines()
         {
-            for (int i = 0; i < this.rowsCount; i++)
+            foreach(var cell in this.grid)
             {
-                for (int j = 0; j < this.columnsCount; j++)
+                if (cell.Value == '*')
                 {
-                    if (this.grid[i, j].Value == '*')
-                    {
-                        this.grid[i, j].Reveal();
-                    }
+                    cell.Reveal();
                 }
             }
         }
 
-        public void mark(char marker)
+        public void MarkCell(char marker)
         {
-            foreach (var elem in grid)
+            foreach (var cell in grid)
             {
-                if ((elem.Value != '*') && (!elem.Revealed))
+                if ((cell.Value != '*') && (!cell.Revealed))
                 {
-                    elem.Value = marker;
-                    elem.Reveal();
+                    cell.Value = marker;
+                    cell.Reveal();
                 }
             }
         }
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("   ");
+            StringBuilder result = new StringBuilder();
+            result.Append("   ");
 
             //generates column numbers
             for (int i = 0; i < columnsCount; i++)
             {
-                sb.AppendFormat(" {0}", i);
+                result.AppendFormat(" {0}", i);
             }
-            sb.Append(" \n");
+            result.Append(" \n");
 
             //generates -----------------
-            sb.Append("   ");
-            sb.Append('-', columnsCount * 2 + 1);
-            sb.Append(" \n");
+            result.Append("   ");
+            result.Append('-', columnsCount * 2 + 1);
+            result.Append(" \n");
 
             for (int i = 0; i < rowsCount; i++)
             {
                 //generates row number
-                sb.AppendFormat("{0} |", i);
+                result.AppendFormat("{0} |", i);
 
                 //generate values in each row
                 for (int j = 0; j < columnsCount; j++)
                 {
-                    sb.AppendFormat(" {0}", grid[i, j].VisibleValue);
+                    result.AppendFormat(" {0}", this.grid[i, j].VisibleValue);
                 }
-                sb.Append(" |\n");
+                result.Append(" |\n");
             }
 
             //generates -----------------
-            sb.Append("   ");
-            sb.Append('-', columnsCount * 2 + 1);
-            sb.Append(" \n");
+            result.Append("   ");
+            result.Append('-', columnsCount * 2 + 1);
+            result.Append(" \n");
 
-            return sb.ToString();
-        }
-
-        public MinesweeperCell get(int row, int column)
-        {
-            if (IsValidCell(row, column))
-                throw new InvalidCellException();
-            return grid[row, column];
+            return result.ToString();
         }
     }
 }

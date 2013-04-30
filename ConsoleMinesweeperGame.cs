@@ -71,7 +71,7 @@ namespace MinesweeperProject
 
                             if (Grid.RevealCell(row, column) == '*')
                             {
-                                Grid.mark('-');
+                                Grid.MarkCell('-');
                                 Grid.RevealMines();
                                 Console.WriteLine(Grid.ToString());
                                 Console.WriteLine(String.Format("Booooom! You were killed by a mine. You revealed {0} cells without mines.", Score));
