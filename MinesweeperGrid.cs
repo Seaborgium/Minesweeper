@@ -269,8 +269,8 @@
                 throw new InvalidCellException();
             }
 
-            // restrict neigbour cell area
-            int minRow = (row - 1) < 0 ? row : row - 1;
+            // Restrict the neigbour cell area.
+            int minRow = (row - 1) < 0 ? row : row - 1; 
             int maxRow = (row + 1) >= this.rowsCount ? row : row + 1;
             int minColumn = (column - 1) < 0 ? column : column - 1;
             int maxColumn = (column + 1) >= this.columnsCount ? column : column + 1;
@@ -322,7 +322,7 @@
         {
             List<int> mineCoordinates = this.GenerateRandomNumbers(this.minesCount, this.rowsCount * this.columnsCount);
 
-            // fill mines.
+            // Fill mines.
             for (int i = 0; i < this.minesCount; i++)
             {
                 int row = mineCoordinates[i] / this.columnsCount;
