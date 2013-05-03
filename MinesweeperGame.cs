@@ -1,26 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml;
-
-namespace MinesweeperProject
+﻿namespace MinesweeperProject
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     class MinesweeperGame
     {
-        private MinesweeperGrid grid;
+        private readonly MinesweeperGrid grid;
         private int score;
-        private List<ScoreRecord> scoreBoard;
+        private List<ScoreRecord> scoreBoard;        
+
+        public MinesweeperGame(int rows, int columns, int minesCount)
+        {
+            this.grid = new MinesweeperGrid(rows, columns, minesCount);
+            this.scoreBoard = new List<ScoreRecord>();
+        }
 
         public List<ScoreRecord> ScoreBoard
         {
             get
             {
-                return scoreBoard;
+                return this.scoreBoard;
             }
+
             set
             {
-                scoreBoard = value;
+                if (value != null)
+                {
+                    this.scoreBoard = new List<ScoreRecord>();
+
+                    foreach (ScoreRecord scoreRecord in value)
+                    {
+                        this.scoreBoard.Add(scoreRecord);
+                    }
+                }
+                else
+                {
+                    this.scoreBoard = null;
+                }
             }
         }
 
@@ -28,11 +45,17 @@ namespace MinesweeperProject
         { 
             get
             {
-                return score;
+                return this.score;
             } 
+
             set
             {
-                score = value;
+                if (this.score < 0)
+                {
+                    throw new ArgumentOutOfRangeException("The score cannot be less than 0!");
+                }
+
+                this.score = value;
             } 
         }
 
@@ -40,32 +63,14 @@ namespace MinesweeperProject
         {
             get
             {
-                return grid;
+                return this.grid;
             }
-        }
-        
-        public MinesweeperGame(int rows, int columns, int minesCount)
-        {
-            grid = new MinesweeperGrid(rows, columns, minesCount);
-            scoreBoard = new List<ScoreRecord>();
-        }
+        } 
 
         public virtual void Start()
         {
-            Grid.Reset();
-            Score = 0;
+            this.Grid.Reset();
+            this.Score = 0;
         }
-
     }
 }
-
-
-
-
-
-
-
-
-
-
-
