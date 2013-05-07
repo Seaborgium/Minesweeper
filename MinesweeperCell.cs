@@ -1,26 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace MinesweeperProject
 {
-    //Testing git
+    // Testing git
     public class MinesweeperCell
     {
         private char val = '?';
         private bool revealed = false;
+
         //constructors
         public MinesweeperCell(char val, bool revealed)
         {
             this.Value = val;
             this.Revealed = revealed;
         }
+
         public MinesweeperCell()
         {
             this.Value = ' ';
             this.Revealed = false;
         }
+
         //properties
         public char VisibleValue
         {
@@ -28,36 +29,43 @@ namespace MinesweeperProject
             {
                 char result;
 
-                if (revealed == false)// if not revealed then return ? else actual value
+                if (this.revealed == false)// if not revealed then return ? else actual value
+                {
                     result = '?';
+                }
                 else
-                    result = val;
+                {
+                    result = this.val;
+                }
 
                 return result;
             }
         }
+
         public char Value
         { 
             get
             {
-                return val;
+                return this.val;
             }
             set
             {
-                val = value;
+                this.val = value;
             }
         }
+
         public bool Revealed 
         { 
             get
             {
-                return revealed;
-            } 
+                return this.revealed;
+            }
             set
             {
-                revealed = value;
+                this.revealed = value;
             }
         }
+
         //methods
         public void Reveal()
         {
