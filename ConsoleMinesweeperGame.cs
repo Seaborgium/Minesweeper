@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 namespace MinesweeperProject
 {
-    class ConsoleMinesweeperGame : MinesweeperGame
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+
+    internal class ConsoleMinesweeperGame : MinesweeperGame
     {
         public ConsoleMinesweeperGame(int rows, int columns, int minesCount)
             : base(rows, columns, minesCount)
@@ -18,21 +18,20 @@ namespace MinesweeperProject
             string startMessage = "Welcome to the game “Minesweeper”. Try to reveal all cells without mines. Use 'top' to view the scoreboard, 'restart' to start a new game and 'exit' to quit the game.";
             Console.WriteLine(startMessage);
             Console.WriteLine(Grid.ToString());
-            NextCommand();
+            this.NextCommand();
         }
 
-        public void NextCommand()//console -  output grid and message to request command
+        public void NextCommand() ////console -  output grid and message to request command
         {
-            
             Console.Write("Enter row and column:");
-            
+
             string commandLine = Console.ReadLine().ToUpper().Trim();
 
             List<string> commandList = commandLine.Split(' ').ToList();
-            
+
             if (commandList.Count == 0)
             {
-                NextCommand();
+                this.NextCommand();
             }
 
             try
@@ -40,19 +39,22 @@ namespace MinesweeperProject
                 string firstCommand = commandList.ElementAt(0);
                 switch (firstCommand)
                 {
-                    case "RESTART": Start(); break;
+                    case "RESTART":
+                        this.Start();
+                        break;
                     case "TOP":
-                        {
-                            PrintScoreBoard();
-                            NextCommand();
-                        }; break;
-                    case "EXIT": Exit(); break;
-                    //case "EXPLOREMINES":
-                    //    {
-                    //        Grid.RevealMines();
-                    //        Console.WriteLine(Grid.ToString());
-                    //        NextCommand();
-                    //    }; break;
+                        this.PrintScoreBoard();
+                        this.NextCommand();
+                        break;
+                    case "EXIT":
+                        this.Exit();
+                        break;
+                    ////case "EXPLOREMINES":
+                    ////    {
+                    ////        Grid.RevealMines();
+                    ////        Console.WriteLine(Grid.ToString());
+                    ////        NextCommand();
+                    ////    }; break;
                     default:
                         {
                             int row = 0;
@@ -60,47 +62,51 @@ namespace MinesweeperProject
                             bool tryParse = false;
 
                             if (commandList.Count < 2)
+                            {
                                 throw new CommandUnknownException();
+                            }
 
-                            tryParse = (Int32.TryParse(commandList.ElementAt(0), out row) || tryParse);
-                            tryParse = (Int32.TryParse(commandList.ElementAt(1), out column) || tryParse);
+                            tryParse = int.TryParse(commandList.ElementAt(0), out row) || tryParse;
+                            tryParse = int.TryParse(commandList.ElementAt(1), out column) || tryParse;
 
                             if (!tryParse)
+                            {
                                 throw new CommandUnknownException();
-
+                            }
 
                             if (Grid.RevealCell(row, column) == '*')
                             {
                                 Grid.MarkCell('-');
                                 Grid.RevealMines();
                                 Console.WriteLine(Grid.ToString());
-                                Console.WriteLine(String.Format("Booooom! You were killed by a mine. You revealed {0} cells without mines.", Score));
+                                Console.WriteLine(string.Format("Booooom! You were killed by a mine. You revealed {0} cells without mines.", this.Score));
                                 Console.Write("Please enter your name for the top scoreboard: ");
                                 string playerName = Console.ReadLine();
                                 ScoreBoard.Add(new ScoreRecord(playerName, Score));
                                 Console.WriteLine();
-                                PrintScoreBoard();
-                                Start();
+                                this.PrintScoreBoard();
+                                this.Start();
                             }
                             else
                             {
                                 Console.WriteLine(Grid.ToString());
-                                Score++;
-                                NextCommand();
+                                this.Score++;
+                                this.NextCommand();
                             }
+                        }
 
-                        } break;
+                        break;
                 }
             }
             catch (InvalidCellException)
             {
                 Console.WriteLine("Illegal move!");
-                NextCommand();
+                this.NextCommand();
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                NextCommand();
+                this.NextCommand();
             }
         }
 
@@ -111,17 +117,17 @@ namespace MinesweeperProject
 
         public void PrintScoreBoard()
         {
-            StringBuilder sb = new StringBuilder();    
-            sb.AppendLine("Scoreboard:");
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine("Scoreboard:");
             ScoreBoard.Sort();
-            int i=0;
-            foreach (ScoreRecord sr in ScoreBoard)
+            int i = 0;
+            foreach (ScoreRecord scoreRecord in this.ScoreBoard)
             {
                 i++;
-                sb.AppendFormat("{0}. {1} --> {2} cells \n", i, sr.PlayerName, sr.Score);
+                stringBuilder.AppendFormat("{0}. {1} --> {2} cells \n", i, scoreRecord.PlayerName, scoreRecord.Score);
             }
-            Console.WriteLine(sb.ToString());
-        }
 
+            Console.WriteLine(stringBuilder.ToString());
+        }
     }
 }
