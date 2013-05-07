@@ -1,13 +1,13 @@
-﻿using System;
-using System.Linq;
-
-namespace MinesweeperProject
+﻿namespace MinesweeperProject
 {
-    class Program
+    using System;
+    using System.Linq;
+
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            ConsoleMinesweeperGame game = new ConsoleMinesweeperGame(5,10,15);
+            ConsoleMinesweeperGame game = new ConsoleMinesweeperGame(5, 10, 15);
 
             game.Start();
         }
