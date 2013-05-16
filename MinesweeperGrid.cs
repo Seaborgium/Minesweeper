@@ -136,7 +136,7 @@
         /// <paramref name="row"/> and <paramref name="column"/>.</returns>
         public char RevealCell(int row, int column)
         {
-            if ((!this.IsValidCell(row, column)) || this.grid[row, column].Revealed)
+            if ((!this.IsValidCell(row, column)) || this.grid[row, column].IsRevealed)
             {
                 throw new InvalidCellException();
             }
@@ -161,7 +161,7 @@
             int count = 0;
             foreach (var cell in this.grid)
             {
-                if (cell.Revealed)
+                if (cell.IsRevealed)
                 {
                     count++;
                 }
@@ -193,7 +193,7 @@
         {
             foreach (var cell in this.grid)
             {
-                if ((cell.Value != '*') && (!cell.Revealed))
+                if ((cell.Value != '*') && (!cell.IsRevealed))
                 {
                     cell.Value = marker;
                     cell.Reveal();

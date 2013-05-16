@@ -5,20 +5,21 @@
 
     public class MinesweeperCell
     {
-        private char val = '?';
-        private bool revealed = false;
+        public MinesweeperCell()
+        {
+            this.Value = ' ';
+            this.IsRevealed = false;
+        }
 
         public MinesweeperCell(char val, bool revealed)
         {
             this.Value = val;
-            this.Revealed = revealed;
+            this.IsRevealed = false;
         }
 
-        public MinesweeperCell()
-        {
-            this.Value = ' ';
-            this.Revealed = false;
-        }
+        public char Value { get; set; }
+
+        public bool IsRevealed { get; private set; }
 
         public char VisibleValue
         {
@@ -26,48 +27,22 @@
             {
                 char result;
 
-                if (this.revealed == false)
+                if (this.IsRevealed == false)
                 {
                     result = '?';
                 }
                 else
                 {
-                    result = this.val;
+                    result = this.Value;
                 }
 
                 return result;
             }
         }
 
-        public char Value
-        { 
-            get
-            {
-                return this.val;
-            }
-
-            set
-            {
-                this.val = value;
-            }
-        }
-
-        public bool Revealed 
-        { 
-            get
-            {
-                return this.revealed;
-            }
-
-            set
-            {
-                this.revealed = value;
-            }
-        }
-
         public void Reveal()
         {
-            this.Revealed = true;
+            this.IsRevealed = true;
         }
     }
 }
