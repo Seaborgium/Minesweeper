@@ -15,14 +15,15 @@
 
         public int Score { get; private set; }
 
-        public int CompareTo(Object obj)
+        public int CompareTo(object obj)
         {
             if (!(obj is ScoreRecord))
             {
                 throw
                 new ArgumentException("Compared Object is not ScoreRecord!");
             }
-            ScoreRecord comparedScore = ((ScoreRecord)obj);
+
+            ScoreRecord comparedScore = (ScoreRecord)obj;
             int compareResult = -1 * this.Score.CompareTo(comparedScore.Score);
             return compareResult;
         }
