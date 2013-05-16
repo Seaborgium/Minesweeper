@@ -21,21 +21,12 @@
 
         public bool IsRevealed { get; private set; }
 
-        public char VisibleValue
+        public char GetCellValue
         {
             get
             {
                 char result;
-
-                if (this.IsRevealed == false)
-                {
-                    result = '?';
-                }
-                else
-                {
-                    result = this.Value;
-                }
-
+                result = this.IsRevealed ? this.Value : '?';
                 return result;
             }
         }

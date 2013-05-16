@@ -231,7 +231,7 @@
                 // Generate values in each row.
                 for (int j = 0; j < this.columnsCount; j++)
                 {
-                    result.AppendFormat(" {0}", this.grid[i, j].VisibleValue);
+                    result.AppendFormat(" {0}", this.grid[i, j].GetCellValue);
                 }
 
                 result.Append(" |\n");
