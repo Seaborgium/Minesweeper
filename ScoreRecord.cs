@@ -11,9 +11,9 @@
             this.Score = score;
         }
 
-        public string PlayerName { get; set; }
+        public string PlayerName { get; private set; }
 
-        public int Score { get; set; }
+        public int Score { get; private set; }
 
         public int CompareTo(Object obj)
         {
