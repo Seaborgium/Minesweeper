@@ -49,7 +49,7 @@
     <Compile Include="MinesweeperGame.cs" />
     <Compile Include="MinesweeperGrid.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="ScoreBoard.cs" />
+    <Compile Include="ScoreRecord.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
