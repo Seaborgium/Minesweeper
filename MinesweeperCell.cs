@@ -14,7 +14,7 @@
         public MinesweeperCell(char val, bool revealed)
         {
             this.Value = val;
-            this.IsRevealed = false;
+            this.IsRevealed = revealed;
         }
 
         public char Value { get; set; }
