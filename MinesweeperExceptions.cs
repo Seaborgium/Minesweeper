@@ -35,7 +35,7 @@
     class IllegalMoveException : ApplicationException
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="IllegalMoveException" /> class,
+        /// Initializes a new instance of the <see cref="IllegalMoveException" /> class
         /// with no parameters and message "Illegal move!"
         /// </summary>
         public IllegalMoveException()
