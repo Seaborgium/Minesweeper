@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.IO;
-using System.Xml;
 
 namespace MinesweeperProject
 {
-    class ScoreRecord:IComparable
+    class ScoreRecord : IComparable
     {
         private string playerName;
         private int score;
@@ -50,10 +46,10 @@ namespace MinesweeperProject
                     new ArgumentException("Compare Object is not ScoreRecord!");
             }
 
-            return -1*this.score.CompareTo(((ScoreRecord)obj).score);
+            return -1 * this.score.CompareTo(((ScoreRecord)obj).score);
         }
 
-        
+
     }
 
 }
