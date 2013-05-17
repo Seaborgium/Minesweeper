@@ -48,7 +48,7 @@
     <Compile Include="MinesweeperExceptions.cs" />
     <Compile Include="MinesweeperGame.cs" />
     <Compile Include="MinesweeperGrid.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Minesweeper.cs" />
     <Compile Include="ScoreRecord.cs" />
   </ItemGroup>
   <ItemGroup>
