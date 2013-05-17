@@ -33,16 +33,20 @@ namespace MinesweeperProject
             this.NextCommand();
         }
 
+        public List<string> ReadUserInput()
+        {
+            Console.Write("Enter row and column:");
+            string commandLine = Console.ReadLine().ToUpper().Trim();
+
+            return commandLine.Split(' ').ToList();
+        }
+
         /// <summary>
         /// Waits for the player to enter a row and a column and trims the input to take the parameters
         /// </summary>
         public void NextCommand() ////console -  output grid and message to request command
         {
-            Console.Write("Enter row and column:");
-
-            string commandLine = Console.ReadLine().ToUpper().Trim();
-
-            List<string> commandList = commandLine.Split(' ').ToList();
+            List<string> commandList = this.ReadUserInput();
 
             if (commandList.Count == 0)
             {
