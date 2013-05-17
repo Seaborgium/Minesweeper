@@ -7,7 +7,7 @@
     {
         public static void Main(string[] args)
         {
-            ConsoleMinesweeperGame game = new ConsoleMinesweeperGame(2,2,0);
+            ConsoleMinesweeperGame game = new ConsoleMinesweeperGame(9, 9, 10);
 
             game.Start();
         }
