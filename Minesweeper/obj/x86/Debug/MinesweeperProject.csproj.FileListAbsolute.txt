@@ -1,0 +1,22 @@
+C:\Users\marti_000\Documents\Visual Studio 2012\Projects\Minesweeper-6\bin\Debug\MinesweeperProject.exe
+C:\Users\marti_000\Documents\Visual Studio 2012\Projects\Minesweeper-6\bin\Debug\MinesweeperProject.pdb
+C:\Users\marti_000\Documents\Visual Studio 2012\Projects\Minesweeper-6\obj\x86\Debug\MinesweeperProject.csprojResolveAssemblyReference.cache
+C:\Users\marti_000\Documents\Visual Studio 2012\Projects\Minesweeper-6\obj\x86\Debug\MinesweeperProject.exe
+C:\Users\marti_000\Documents\Visual Studio 2012\Projects\Minesweeper-6\obj\x86\Debug\MinesweeperProject.pdb
+C:\Users\ico\Documents\GitHub\Telerik\TelerikAcademy-HristoBratanov\High-Quality-Code\TeamWorkingProject\Minesweeper\obj\x86\Debug\MinesweeperProject.exe
+C:\Users\ico\Documents\GitHub\Telerik\TelerikAcademy-HristoBratanov\High-Quality-Code\TeamWorkingProject\Minesweeper\obj\x86\Debug\MinesweeperProject.pdb
+E:\Telerik\HighQualityProgrammingCode\TeamWork\Minesweeper\obj\x86\Debug\MinesweeperProject.exe
+E:\Telerik\HighQualityProgrammingCode\TeamWork\Minesweeper\obj\x86\Debug\MinesweeperProject.pdb
+E:\Telerik\HighQualityProgrammingCode\TeamWork\Minesweeper\bin\Debug\MinesweeperProject.exe
+E:\Telerik\HighQualityProgrammingCode\TeamWork\Minesweeper\bin\Debug\MinesweeperProject.pdb
+E:\Telerik\HighQualityProgrammingCode\TeamWork\Minesweeper\obj\x86\Debug\MinesweeperProject.csprojResolveAssemblyReference.cache
+C:\Users\ico\Documents\GitHub\Telerik\TelerikAcademy-HristoBratanov\High-Quality-Code\TeamWorkingProject\Minesweeper\bin\Debug\MinesweeperProject.exe
+C:\Users\ico\Documents\GitHub\Telerik\TelerikAcademy-HristoBratanov\High-Quality-Code\TeamWorkingProject\Minesweeper\bin\Debug\MinesweeperProject.pdb
+C:\Users\ico\Documents\GitHub\Telerik\TelerikAcademy-HristoBratanov\High-Quality-Code\TeamWorkingProject\Minesweeper\obj\x86\Debug\MinesweeperProject.csprojResolveAssemblyReference.cache
+C:\Users\marti_000\Documents\Visual Studio 2012\Projects\KPK\Minesweeper\obj\x86\Debug\MinesweeperProject.exe
+C:\Users\marti_000\Documents\Visual Studio 2012\Projects\KPK\Minesweeper\obj\x86\Debug\MinesweeperProject.pdb
+C:\Users\marti_000\Documents\Visual Studio 2012\Projects\KPK\Minesweeper\bin\Debug\MinesweeperProject.exe
+C:\Users\marti_000\Documents\Visual Studio 2012\Projects\KPK\Minesweeper\bin\Debug\MinesweeperProject.pdb
+C:\Users\marti_000\Documents\Visual Studio 2012\Projects\KPK\Minesweeper\obj\x86\Debug\MinesweeperProject.csprojResolveAssemblyReference.cache
+C:\Users\hristo\Documents\GitHub\Minesweeper\obj\x86\Debug\MinesweeperProject.exe
+C:\Users\hristo\Documents\GitHub\Minesweeper\obj\x86\Debug\MinesweeperProject.pdb
