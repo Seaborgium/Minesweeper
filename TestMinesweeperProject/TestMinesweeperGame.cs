@@ -6,7 +6,7 @@ using System.Text;
 namespace TestMinesweeperProject
 {
     [TestClass]
-    public class UnitTest1
+    public class TestMinesweeperGame
     {
         [ExpectedException(typeof(NullReferenceException))]
         [TestMethod]
@@ -25,5 +25,12 @@ namespace TestMinesweeperProject
 
             Assert.IsNull(actual);
         }
+
+        //[TestMethod]
+        //public void TestScoreboardIfValid()
+        //{
+        //    MinesweeperGame mineGame = new MinesweeperGame(10, 10, 5);
+        //    mineGame.ScoreBoard = new List<ScoreRecord>( new ScoreRecord()
+        //}
     }
 }
