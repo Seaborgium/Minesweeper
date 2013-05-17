@@ -7,7 +7,7 @@
     /// <summary>
     /// Creates new Minesweeper game!
     /// </summary>
-    class MinesweeperGame
+    public class MinesweeperGame
     {
         /// <summary>
         /// Represents the grid in Minesweeper game.
@@ -64,7 +64,7 @@
                 }
                 else
                 {
-                    this.scoreBoard = null;
+                    throw new NullReferenceException("The scorerecord cannot be null!");
                 }
             }
         }
