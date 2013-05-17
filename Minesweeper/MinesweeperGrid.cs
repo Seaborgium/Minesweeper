@@ -13,7 +13,7 @@
         /// <summary>
         /// Used to generate random numbers when the grid is initialized.
         /// </summary>
-        private static readonly Random RandomNumberGenerator = new Random();
+        private static readonly Random randomNumberGenerator = new Random();
 
         /// <summary>
         /// Represents the grid in the game.
@@ -305,7 +305,7 @@
                 int newRandomNumber = 0;
                 do
                 {
-                    newRandomNumber = RandomNumberGenerator.Next(maximalNumber);
+                    newRandomNumber = randomNumberGenerator.Next(maximalNumber);
                 }
                 while (randomNumbers.Count(n => n == newRandomNumber) > 0);
 
