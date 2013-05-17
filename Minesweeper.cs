@@ -3,7 +3,7 @@
     using System;
     using System.Linq;
 
-    public class Program
+    public class Minesweeper
     {
         public static void Main(string[] args)
         {
