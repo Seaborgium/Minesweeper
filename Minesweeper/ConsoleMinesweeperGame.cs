@@ -5,13 +5,25 @@ namespace MinesweeperProject
     using System.Linq;
     using System.Text;
 
+    /// <summary>
+    ///The class for the controls to the game
+    /// </summary>
     internal class ConsoleMinesweeperGame : MinesweeperGame
     {
+        /// <summary>
+        /// The constructor for the class.
+        /// </summary>
+        /// <param name="rows">Takes the rows</param>
+        /// <param name="columns">Takes the columns</param>
+        /// <param name="minesCount">Nuumber of the mines</param>
         public ConsoleMinesweeperGame(int rows, int columns, int minesCount)
             : base(rows, columns, minesCount)
         {
         }
 
+        /// <summary>
+        /// The control for the start game with the start game message
+        /// </summary>
         public override void Start()
         {
             base.Start();
@@ -21,6 +33,9 @@ namespace MinesweeperProject
             this.NextCommand();
         }
 
+        /// <summary>
+        /// Waits for the player to enter a row and a column and trims the input to take the parameters
+        /// </summary>
         public void NextCommand() ////console -  output grid and message to request command
         {
             Console.Write("Enter row and column:");
@@ -61,10 +76,10 @@ namespace MinesweeperProject
                             int column = 0;
                             bool tryParse = false;
 
-                            //if (commandList.Count < 2)
-                            //{
-                            //    throw new CommandUnknownException();
-                            //}
+                            ////if (commandList.Count < 2)
+                            ////{
+                            ////    throw new CommandUnknownException();
+                            ////}
 
                             tryParse = int.TryParse(commandList.ElementAt(0), out row) || tryParse;
                             tryParse = int.TryParse(commandList.ElementAt(1), out column) || tryParse;
@@ -110,11 +125,17 @@ namespace MinesweeperProject
             }
         }
 
+        /// <summary>
+        /// The commmand to exit the game
+        /// </summary>
         public void Exit()
         {
             Console.WriteLine("Good bye!");
         }
 
+        /// <summary>
+        /// The method that vuild the scores with the name of the player
+        /// </summary>
         public void PrintScoreBoard()
         {
             StringBuilder stringBuilder = new StringBuilder();
