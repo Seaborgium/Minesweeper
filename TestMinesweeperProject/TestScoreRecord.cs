@@ -34,7 +34,24 @@ namespace TestMinesweeperProject
         {
             ScoreRecord otherScore = new ScoreRecord("Other Name", 10);
 
-            Assert.AreEqual('a', PlayerScore.CompareTo(otherScore));
+            Assert.AreEqual(-1, PlayerScore.CompareTo(otherScore));
+        }
+
+        [TestMethod]
+        public void TestScore_CompareTo_More()
+        {
+            ScoreRecord otherScore = new ScoreRecord("Other Name", 50);
+
+            Assert.AreEqual(1, PlayerScore.CompareTo(otherScore));
+        }
+
+        [ExpectedException(typeof(ArgumentException))]
+        [TestMethod]
+        public void TestScore_CompareTo_Exceptions()
+        {
+            int otherScore = 2;
+
+            Assert.AreEqual(0, PlayerScore.CompareTo(otherScore));
         }
     }
 }
