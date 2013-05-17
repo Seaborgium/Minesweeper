@@ -7,7 +7,7 @@ namespace TestMinesweeperProject
     public class TestMinesweeperGrid
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestMethod()
         {
         }
     }
