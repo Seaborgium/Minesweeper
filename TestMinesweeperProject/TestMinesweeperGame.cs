@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace TestMinesweeperProject
 {
     [TestClass]
-    public class TestMinesweeperGame
+    public class TestExceptions
     {
         [ExpectedException(typeof(NullReferenceException))]
         [TestMethod]
