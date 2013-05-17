@@ -11,7 +11,7 @@ namespace MinesweeperProject
     internal class ConsoleMinesweeperGame : MinesweeperGame
     {
         /// <summary>
-        /// The constructor for the class.
+        /// Initializes a new instance of the <see cref="ConsoleMinesweeperGame.cs"/>class
         /// </summary>
         /// <param name="rows">Takes the rows</param>
         /// <param name="columns">Takes the columns</param>
@@ -33,6 +33,10 @@ namespace MinesweeperProject
             this.NextCommand();
         }
 
+        /// <summary>
+        /// Reads user input
+        /// </summary>
+        /// <returns>Returns the row and the column that are entered.</returns>
         public List<string> ReadUserInput()
         {
             Console.Write("Enter row and column:");
@@ -51,6 +55,10 @@ namespace MinesweeperProject
             this.ExecuteCommand(commandList);
         }
 
+        /// <summary>
+        /// Executes the commands for "Restart", for top players and to exit from the game
+        /// </summary>
+        /// <param name="commandList">Takes the command from the list at a specified index</param>
         public void ExecuteCommand(List<string> commandList)
         {
             if (commandList.Count == 0)
