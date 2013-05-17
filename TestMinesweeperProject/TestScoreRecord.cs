@@ -29,6 +29,7 @@ namespace TestMinesweeperProject
             Assert.AreEqual(0, PlayerScore.CompareTo(otherScore));
         }
 
+        [TestMethod]
         public void TestScore_CompareTo_Less()
         {
             ScoreRecord otherScore = new ScoreRecord("Other Name", 10);
