@@ -71,7 +71,7 @@ namespace MinesweeperProject
                             bool tryParse = false;
 
                             tryParse = int.TryParse(commandList.ElementAt(0), out row) || tryParse;
-                            tryParse = int.TryParse(commandList.ElementAt(1), out column) || tryParse;
+                            tryParse = int.TryParse(commandList.ElementAt(1), out column) && tryParse;
 
                             if (!tryParse || commandList.Count < 2)
                             {
