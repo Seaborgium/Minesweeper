@@ -48,6 +48,11 @@ namespace MinesweeperProject
         {
             List<string> commandList = this.ReadUserInput();
 
+            this.ExecuteCommand(commandList);
+        }
+
+        public void ExecuteCommand(List<string> commandList)
+        {
             if (commandList.Count == 0)
             {
                 this.NextCommand();
@@ -74,7 +79,7 @@ namespace MinesweeperProject
                             int column = 0;
                             bool tryParse = false;
 
-                            tryParse = int.TryParse(commandList.ElementAt(0), out row) || tryParse;
+                            tryParse = int.TryParse(commandList.ElementAt(0), out row);
                             tryParse = int.TryParse(commandList.ElementAt(1), out column) && tryParse;
 
                             if (!tryParse || commandList.Count < 2)
