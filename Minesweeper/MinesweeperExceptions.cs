@@ -6,7 +6,7 @@
     /// <summary>
     /// Exception class used for throwing exceptions if the grid cell is invalid.
     /// </summary>
-    class InvalidCellException : ApplicationException
+    public class InvalidCellException : ApplicationException
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InvalidCellException" /> class,
@@ -32,7 +32,7 @@
     /// Exception class used for throwing exceptions in case of illegal 
     /// movement in the grid.
     /// </summary>
-    class IllegalMoveException : ApplicationException
+    public class IllegalMoveException : ApplicationException
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IllegalMoveException" /> class
@@ -58,7 +58,7 @@
     /// Exception class used for throwing exceptions in case unknown 
     /// command entered by the user.
     /// </summary>
-    class CommandUnknownException : ApplicationException
+    public class CommandUnknownException : ApplicationException
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CommandUnknownException" /> class,
