@@ -5,7 +5,7 @@
     using System.Linq;
 
     /// <summary>
-    /// Creates new Minesweeper game.
+    /// Creates new Minesweeper game!
     /// </summary>
     class MinesweeperGame
     {
