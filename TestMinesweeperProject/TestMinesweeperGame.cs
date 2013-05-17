@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MinesweeperProject;
 using System.Text;
+using System.Collections.Generic;
 
 namespace TestMinesweeperProject
 {
@@ -10,25 +11,30 @@ namespace TestMinesweeperProject
     {
         [ExpectedException(typeof(NullReferenceException))]
         [TestMethod]
-        public void TestScoreboard_WhenNull_ShouldThrowException()
+        public void Scoreboard_WhenNull_ShouldThrowException()
         {
             MinesweeperGame mineGame = new MinesweeperGame(10, 10, 5);
             mineGame.ScoreBoard = null;
-            //string expected = null;
-            //StringBuilder sb = new StringBuilder();
-
-            //foreach (var item in mineGame.ScoreBoard)
-            //{
-            //    sb.Append(item);
-            //}
-            //string actual = sb.ToString();
         }
 
-        //[TestMethod]
-        //public void TestScoreboardIfValid()
-        //{
-        //    MinesweeperGame mineGame = new MinesweeperGame(10, 10, 5);
-        //    mineGame.ScoreBoard = new List<ScoreRecord>( new ScoreRecord()
-        //}
+        [TestMethod]
+        public void Scoreboard_WhenValidValue()
+        {
+            MinesweeperGame mineswGame = new MinesweeperGame(10, 10, 5);
+            ScoreRecord record = new ScoreRecord("Ivan", 4);
+            mineswGame.ScoreBoard.Add(record);
+            int actual = mineswGame.ScoreBoard.Count;
+            int expected = 1;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        [TestMethod]
+        public void Score_WhenLessThan0_ShouldThrowException()
+        {
+            MinesweeperGame mineswGame = new MinesweeperGame(10, 10, 5);
+            mineswGame.Score = -1;
+        }
     }
 }
