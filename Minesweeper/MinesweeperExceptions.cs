@@ -9,7 +9,7 @@
     public class InvalidCellException : ApplicationException
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InvalidCellException" /> class,
+        /// Initializes a new instance of the <see cref="InvalidCellException"  /> class,
         /// with no parameters and message "Invalid cell!"
         /// </summary>
         public InvalidCellException()
