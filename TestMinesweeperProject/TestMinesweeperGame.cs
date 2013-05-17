@@ -10,20 +10,18 @@ namespace TestMinesweeperProject
     {
         [ExpectedException(typeof(NullReferenceException))]
         [TestMethod]
-        public void TestScoreboardIfNull()
+        public void TestScoreboard_WhenNull_ShouldThrowException()
         {
             MinesweeperGame mineGame = new MinesweeperGame(10, 10, 5);
             mineGame.ScoreBoard = null;
-            string expected = null;
-            StringBuilder sb = new StringBuilder();
+            //string expected = null;
+            //StringBuilder sb = new StringBuilder();
 
-            foreach (var item in mineGame.ScoreBoard)
-            {
-                sb.Append(item);
-            }
-            string actual = sb.ToString();
-
-            Assert.IsNull(actual);
+            //foreach (var item in mineGame.ScoreBoard)
+            //{
+            //    sb.Append(item);
+            //}
+            //string actual = sb.ToString();
         }
 
         //[TestMethod]

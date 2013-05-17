@@ -23,7 +23,7 @@
         /// Represents the scoreboard in Minesweeper game.
         /// Holds the score of all players in current game.
         /// </summary>
-        private List<ScoreRecord> scoreBoard;
+        private List<ScoreRecord> scoreRecord;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MinesweeperGame"/> class.
@@ -38,7 +38,7 @@
         public MinesweeperGame(int rows, int columns, int minesCount)
         {
             this.grid = new MinesweeperGrid(rows, columns, minesCount);
-            this.scoreBoard = new List<ScoreRecord>();
+            this.scoreRecord = new List<ScoreRecord>();
         }
 
         /// <summary>
@@ -48,18 +48,18 @@
         {
             get
             {
-                return this.scoreBoard;
+                return this.scoreRecord;
             }
 
             set
             {
                 if (value != null)
                 {
-                    this.scoreBoard = new List<ScoreRecord>();
+                    this.scoreRecord = new List<ScoreRecord>();
 
                     foreach (ScoreRecord scoreRecord in value)
                     {
-                        this.scoreBoard.Add(scoreRecord);
+                        this.scoreRecord.Add(scoreRecord);
                     }
                 }
                 else
