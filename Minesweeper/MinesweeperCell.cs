@@ -5,9 +5,11 @@
 
     public class MinesweeperCell
     {
+        public const char EmptyCell = ' ';
+
         public MinesweeperCell()
         {
-            this.Value = ' ';
+            this.Value = MinesweeperCell.EmptyCell;
             this.IsRevealed = false;
         }
 
