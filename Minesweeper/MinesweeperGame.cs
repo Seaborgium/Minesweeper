@@ -81,7 +81,7 @@
 
             set
             {
-                if (this.score < 0)
+                if (value < 0)
                 {
                     throw new ArgumentOutOfRangeException("The score cannot be less than 0!");
                 }
